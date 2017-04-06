@@ -5,46 +5,10 @@
  */
 
 import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View, 
-  TextInput,
-  TouchableHighlight
-} from 'react-native';
+import { AppRegistry, StyleSheet } from 'react-native';
+import { Todo } from './src/app/Todo.js';
 
-export default class NativeTodo extends Component {
-
-  constructor() {
-    super();
-    this.state = {
-      todos: [1,2,3],
-      newTodo: ''
-    }
-  }
-
-  handleChange(e) {
-    const {value} = e.target;
-    this.setState({newTodo: value});
-  }
-
-  handlePress() {
-
-  }
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <TextInput value={this.state.newTodo} onChange={this.handleChange.bind(this)}/>
-        <TouchableHighlight onPress={this.handlePress.bind(this)}>
-          <Text>Tap Here</Text>
-        </TouchableHighlight>
-        {this.state.todos.map((todo, i) => <Text key={i}>{todo}</Text>)}
-      </View>
-    );
-  }
-}
+const Main = () => (<Todo />);
 
 const styles = StyleSheet.create({
   container: {
@@ -65,4 +29,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('NativeTodo', () => NativeTodo);
+AppRegistry.registerComponent('NativeTodo', () => Main);

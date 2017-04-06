@@ -5,31 +5,10 @@
  */
 
 import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import { AppRegistry, StyleSheet } from 'react-native';
+import { Todo } from './src/app/Todo.js';
 
-export default class NativeTodo extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
-    );
-  }
-}
+const Main = () => (<Todo />);
 
 const styles = StyleSheet.create({
   container: {
@@ -50,4 +29,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('NativeTodo', () => NativeTodo);
+AppRegistry.registerComponent('NativeTodo', () => Main);
