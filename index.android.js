@@ -7,8 +7,9 @@
 import React, { Component } from 'react';
 import { AppRegistry, StyleSheet } from 'react-native';
 import { Todo } from './src/app/Todo.js';
+import { Fancy } from './src/app/Fancy.js';
 
-const Main = () => (<Todo />);
+const Main = () => (<Fancy />);
 
 const styles = StyleSheet.create({
   container: {
