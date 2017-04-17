@@ -42,7 +42,10 @@ export class Todo extends Component {
                 </View>
                 <View style={styles.todos}>
                     {this.state.todos.map((todos, i) => 
-                    <Text key={i}>{todo}</Text>)}
+                    <View key={i} style={styles.todo}>
+                        <Text style={styles.todoText}>{todo}</Text>
+                    </View>
+                    )}
                 </View>
             </View>
         )
@@ -79,7 +82,11 @@ const styles = StyleSheet.create({
         marginTop: 60
     },
     todo: {
+        marginBottom: 10,
         borderBottomWidth: 1,
         borderBottomColor: 'lightgrey'
+    },
+    todoText: {
+        fontSize: 24
     }
 })
