@@ -9,7 +9,7 @@ import { AppRegistry, StyleSheet } from 'react-native';
 import { Todo } from './src/app/Todo.js';
 import { Fancy } from './src/app/Fancy.js';
 
-const Main = () => (<Fancy />);
+const Main = () => (<Todo />);
 
 const styles = StyleSheet.create({
   container: {
