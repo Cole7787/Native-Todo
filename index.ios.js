@@ -10,7 +10,7 @@ import { Todo } from './src/app/Todo.js';
 import { Fancy } from './src/app/Fancy.js';
 import { Reddit } from './src/app/Reddit.js';
 
-const Main = () => (<Reddit />);
+const Main = () => (<Todo />);
 
 const styles = StyleSheet.create({
   container: {

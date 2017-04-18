@@ -22,8 +22,20 @@ export class Todo extends Component {
     }
 
     handlePress() {
-        const todos = [...this.state.todos, this.state.newTodo];
-        this.setState({todos, newTodo: ''});
+        fetch('http://localhost:3000/todos', {
+            method: 'post',
+            body: JSON.stringify({
+                name: this.state.newTodo
+            }),
+            header: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            const todos = [...this.state.todos, data];
+            this.setState({todos, newTodo: ''});
+        })
     }
     render(){
         return (
