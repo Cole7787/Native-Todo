@@ -17,24 +17,35 @@ export class Todo extends Component {
         }
     }
 
+    componentWillMount() {
+        fetch('http://10.0.0.8:5000/todos', {
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(todos => this.setState({todos}))
+    }
+
     handleChange() {
         this.setState({newTodo: Text});
     }
 
     handlePress() {
-        fetch('http://localhost:3000/todos', {
-            method: 'post',
+        fetch('http://10.0.0.8:5000/todos', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify({
                 name: this.state.newTodo
-            }),
-            header: {
-                'Content-Type': 'application/json'
-            }
+            })
         })
         .then(res => res.json())
-        .then(data => {
-            const todos = [...this.state.todos, data];
-            this.setState({todos, newTodo: ''});
+        .then(todo => {
+            const todos = [todo, ...this.state.todos];
+            this.setState({todos, newTodo: ''})
         })
     }
     render(){

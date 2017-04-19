@@ -1,7 +1,5 @@
 {
   "todos": [
-    {
-      "id": 1
-    }
+    {"name": "take out trash"}
   ]
 }
