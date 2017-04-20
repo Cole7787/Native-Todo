@@ -52,19 +52,7 @@ export class Todo extends Component {
     render(){
         return (
             <View style={styles.container}>
-                    <Reddit />
-                <View style={styles.form}>
-                    <TextInput
-                    style={styles.input}
-                    value={this.state.newTodo}
-                    onChangeText={this.handleChange.bind(this)}
-                    />
-                    <TouchableOpacity 
-                    style={styles.button}
-                    onPress={this.handlePress.bind(this)}>
-                        <Text style={styles.buttonText}>Create</Text>
-                    </TouchableOpacity>
-                </View>
+                
                 <View style={styles.todos}>
                     {this.state.todos.map((todos, i) => 
                     <View key={i} style={styles.todo}>

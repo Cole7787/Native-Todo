@@ -1,21 +1,23 @@
 import { combineReducers } from 'redux';
-export const ADD_POST = 'ADD_POST';
+const CREATE_TODO = 'CREATE_TODO';
 
+const user = (state = {}, action) => {
+    return state;
+};
 
-export const reddit = (state = [
-    {name: 'demo'},
-    {name: 'hello'}
-], action) => {
+const todos = (state = [], action) => {
     switch (action.type) {
-        case ADD_POST: 
+        case CREATE_TODO:
             return [
                 action.payload,
                 ...state
-            ];
-        default:
-            return state;
+            ]; 
+        default: 
+            return state; 
     }
-}; 
+};
 
-export const reducer = combineReducers({reddit});
-
+export const reducer = combineReducers({
+    todos,
+    users
+});
