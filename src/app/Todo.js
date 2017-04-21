@@ -6,7 +6,7 @@ import {
     TouchableOpacity,
     StyleSheet
 } from 'react-native';
-import { Reddit } from './Reddit';
+import { TodoForm } from './TodoForm';
 
 
 export class Todo extends Component {
@@ -52,7 +52,11 @@ export class Todo extends Component {
     render(){
         return (
             <View style={styles.container}>
-                
+                <TodoForm 
+                    handlePress={this.handlePress.bind(this)}
+                    handleChange={this.handleChange.bind(this)}
+                    value={this.state.newTodo}
+                />
                 <View style={styles.todos}>
                     {this.state.todos.map((todos, i) => 
                     <View key={i} style={styles.todo}>

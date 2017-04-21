@@ -8,7 +8,6 @@ import React, { Component } from 'react';
 import { AppRegistry, StyleSheet } from 'react-native';
 import { Todo } from './src/app/Todo.js';
 import { Fancy } from './src/app/Fancy.js';
-import { Reddit } from './src/app/Reddit.js';
 import { Provider } from 'react-redux';
 import { store } from './src/app/store';
 
