@@ -9,29 +9,15 @@ import {
 import { TodoForm } from './TodoForm';
 import { connect } from 'react-redux';
 
-const mapActionsToProps = (dispatch) => ({
-    createTodo(todo) {
-        dispatch({type: 'CREATE_TODO', payload: todo})
+export class _Todo extends Component {
+    static defaultProps = {
+        todos: []
     }
-});
-
-export class Todo extends Component {
     constructor() {
         super();
         this.state = {
-            todos: [],
             newTodo: ''
         }
-    }
-
-    componentWillMount() {
-        fetch('http://10.0.0.8:5000/todos', {
-            headers: {
-                'Accept': 'application/json'
-            }
-        })
-        .then(res => res.json())
-        .then(todos => this.setState({todos}))
     }
 
     handleChange() {
@@ -39,21 +25,7 @@ export class Todo extends Component {
     }
 
     handlePress() {
-        fetch('http://10.0.0.8:5000/todos', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                name: this.state.newTodo
-            })
-        })
-        .then(res => res.json())
-        .then(todo => {
-            const todos = [todo, ...this.state.todos];
-            this.setState({todos, newTodo: ''})
-        })
+        this.props.createTodo(this.state.newTodo);
     }
     render(){
         return (
@@ -64,7 +36,7 @@ export class Todo extends Component {
                     value={this.state.newTodo}
                 />
                 <View style={styles.todos}>
-                    {this.state.todos.map((todos, i) => 
+                    {this.props.todos.map((todos, i) => 
                     <View key={i} style={styles.todo}>
                         <Text style={styles.todoText}>{todo}</Text>
                     </View>
@@ -74,6 +46,18 @@ export class Todo extends Component {
         )
     }
 }
+
+const mapActionsToProps = (dispatch) => ({
+    createTodo(todo) {
+        dispatch({type: 'CREATE_TODO', payload: todo})
+    }
+});
+
+const mapStateToProps = (state) => ({
+    todos: state.todos
+});
+
+export const Todo = connect(mapStateToProps, mapActionsToProps)(_Todo);
 
 
 const styles = StyleSheet.create({
