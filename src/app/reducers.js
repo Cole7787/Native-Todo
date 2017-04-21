@@ -19,5 +19,5 @@ const todos = (state = [], action) => {
 
 export const reducer = combineReducers({
     todos,
-    users
+    user
 });
