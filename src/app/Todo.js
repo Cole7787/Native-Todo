@@ -7,7 +7,13 @@ import {
     StyleSheet
 } from 'react-native';
 import { TodoForm } from './TodoForm';
+import { connect } from 'react-redux';
 
+const mapActionsToProps = (dispatch) => ({
+    createTodo(todo) {
+        dispatch({type: 'CREATE_TODO', payload: todo})
+    }
+});
 
 export class Todo extends Component {
     constructor() {

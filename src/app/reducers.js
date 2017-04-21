@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-const CREATE_TODO = 'CREATE_TODO';
+export const CREATE_TODO = 'CREATE_TODO';
 
 const user = (state = {}, action) => {
     return state;
